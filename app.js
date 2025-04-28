@@ -4,7 +4,7 @@ const surveyRoutes = require('./routes/survey.routes');
 const recommendationRoutes = require('./routes/recom.routes');
 const db = require('./config/db');
 const cors=require('cors');
-// const { verifyToken } = require('./middlewares/Auth.middleware');
+const { verifyToken } = require('./middlewares/Auth.middleware');
 
 require('dotenv').config();
 db();
@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 
-// app.use(verifyToken);
+app.use(verifyToken);
 
 app.use('/api/survey', surveyRoutes);
 app.use('/api/destinations', recommendationRoutes);
